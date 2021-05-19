@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 
 import { oneRandomActivity } from '../bored-api';
 
@@ -23,7 +23,26 @@ class ClassComp03 extends Component {
 }
 
 const FunctionalComponent03 = () => {
-    return null;
+    const [doWhenImBored, set] = useState(null);
+
+    // componentDidMount
+    useEffect(
+        () => {
+            const run = async () => {
+                const anActivity = await oneRandomActivity();
+                set(anActivity);
+            };
+            run();
+        },
+        []
+    );
+
+
+    if (doWhenImBored === null) {
+        return <h2>Siiiiiiigh. Loading ...</h2>;
+    } else {
+        return <h1>{doWhenImBored}</h1>;
+    }
 };
 
-export default ClassComp03;
+export default FunctionalComponent03;
