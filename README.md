@@ -1,3 +1,5 @@
+<img src="https://media.giphy.com/media/26Ff969Ng7ZM8G0JG/giphy.gif" />
+
 ```
 npm install
 npm start
