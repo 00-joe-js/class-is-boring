@@ -34,7 +34,7 @@ const FunctionalComponent03 = () => {
             };
             run();
         },
-        []
+        [doWhenImBored]
     );
 
 
