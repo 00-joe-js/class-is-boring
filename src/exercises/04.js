@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useState, useEffect } from "react";
 
 import { oneRandomActivityOfType, TYPES_OF_ACTIVITIES } from '../bored-api';
 
@@ -15,7 +15,6 @@ class ClassComp04 extends Component {
         this.setState({ doWhenImBored: anActivity });
     }
     async componentDidMount() {
-        console.log("mounted");
         this.getActivity();
     }
     async componentDidUpdate(prevProps, prevState) {
@@ -40,8 +39,28 @@ class ClassComp04 extends Component {
 }
 
 const FunctionalComponent04 = () => {
-    console.count("04 functional component now rendering!");
-    return null;
+    
+    const [selectedType, setSel] = useState(TYPES_OF_ACTIVITIES[0]);
+    const [doWhenImBored, setActivity] = useState(null);
+
+    useEffect(() => {
+        const run = async () => {
+            const anActivity = await oneRandomActivityOfType(selectedType);
+            setActivity(anActivity);
+        };
+        run();
+    }, [selectedType]);
+
+    return (
+        <div>
+            {doWhenImBored && <h1>{doWhenImBored}</h1>}
+            <select onChange={(e) => setSel(e.target.value)} value={selectedType}>
+                {TYPES_OF_ACTIVITIES.map(activityType => {
+                    return <option key={activityType} value={activityType}>{activityType}</option>
+                })}
+            </select>
+        </div>
+    );
 };
 
-export default ClassComp04;
+export default FunctionalComponent04;
