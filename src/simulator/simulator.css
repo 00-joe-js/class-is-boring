@@ -1,0 +1,83 @@
+#bored-simulator {
+    height: 800px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+#left-panel {
+    width: 30%;
+    background: green;
+}
+#central-unit {
+    height: 100%;
+    width: 55%;
+    background: orange;
+}
+#right-module {
+    width: 15%;
+    background: red;
+}
+
+/* Left panel */
+#boring-buttons {
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+#boring-buttons div {
+    width: 100%;
+    padding: 0 0.5rem;
+}
+#boring-buttons button {
+    display: block;
+    background: rgb(128, 16, 16);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+#boring-buttons button:hover {
+    transition: background 0.2s ease-in-out;
+    background: red;
+}
+
+/* Central unit */
+
+/* Right module */
+#bored-meter {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#bored-meter-bar {
+    width: 80%;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    transition: height 0.5s ease-in;
+}
+
+
+/* ABORT BUTTON */
+#abort-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+#abort-button button {
+    font-size: 1.8rem;
+    cursor: pointer;
+}

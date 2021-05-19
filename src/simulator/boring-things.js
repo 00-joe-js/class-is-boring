@@ -1,4 +1,4 @@
-export default [
+const things = [
     "Wait in line at DMV",
     "Wi-fi is down",
     "Train delay",
@@ -11,3 +11,4 @@ export default [
     "The unbreakable routine of everyday life",
     "Eat an unflavored rice cake"
 ];
+export default things;

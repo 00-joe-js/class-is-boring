@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Nav from "./ExerciseNav";
@@ -7,6 +8,16 @@ import ImTwo from "./exercises/02";
 import ThreeAhAhAh from "./exercises/03";
 import Fourrrrrrrr from "./exercises/04";
 import GimmeFive from "./exercises/05";
+
+const Exercise04Wrapper = () => {
+  const [_, reRender] = useState(Math.random());
+  return (
+    <div>
+      <button onClick={() => reRender(Math.random())}>Trigger re-render</button>
+      <Fourrrrrrrr />
+    </div>
+  );
+};
 
 function App() {
   return (
@@ -24,11 +35,11 @@ function App() {
             <ThreeAhAhAh />
           </Route>
           <Route path="/04">
-            <Fourrrrrrrr />
+            <Exercise04Wrapper />
           </Route>
-          {/* <Route path="/05">
+          <Route path="/05">
             <GimmeFive />
-          </Route> */}
+          </Route>
         </Switch>
       </main>
     </div>

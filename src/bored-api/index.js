@@ -1,9 +1,13 @@
 const baseUrl = `http://www.boredapi.com/api`;
 
 export const oneRandomActivity = async () => {
+    const full = await oneRandomDetailedActivity();
+    return full.activity;
+};
+
+export const oneRandomDetailedActivity = async () => {
     const responseObj = await fetch(`${baseUrl}/activity`);
-    const { activity } = await responseObj.json();
-    return activity;
+    return await responseObj.json();
 };
 
 export const oneRandomActivityOfType = async (type) => {

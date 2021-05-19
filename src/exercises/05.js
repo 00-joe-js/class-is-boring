@@ -1,44 +1,38 @@
 import { Component } from "react";
+import TheBoredSimulator from "../simulator";
 
-import { oneRandomActivityOfType, TYPES_OF_ACTIVITIES } from '../bored-api';
+import { connect } from "react-redux";
+import { setSimulationStatus, resetBoringLevel } from "../simulator/reducks/actions";
 
-class ClassComp05 extends Component {
-    constructor() {
-        super();
-        this.state = {
-            doWhenImBored: null,
-            selectedType: TYPES_OF_ACTIVITIES[0],
-        };
-    }
-    async getActivity() {
-        const anActivity = await oneRandomActivityOfType(this.state.selectedType);
-        this.setState({ doWhenImBored: anActivity });
-    }
-    async componentDidMount() {
-        this.getActivity();
-    }
-    async componentDidUpdate(prevProps, prevState) {
-        if (prevState.selectedType !== this.state.selectedType) {
-            this.getActivity();
+const mSTP = (state) => {
+    return {
+        level: state.currentBoredLevel
+    };
+};
+const mDTP = (dispatch) => {
+    return {
+        abort: () => {
+            dispatch(resetBoringLevel());
+            dispatch(setSimulationStatus({ started: false, aborted: true }));
         }
-    }
+    };
+};
+class ClassComp05 extends Component {
     render() {
-        const { doWhenImBored, selectedType } = this.state;
-        return (
-            <div>
-                {doWhenImBored && <h1>{doWhenImBored}</h1>}
-                <select onChange={(e) => this.setState({ selectedType: e.target.value })} value={selectedType}>
-                    {TYPES_OF_ACTIVITIES.map(activityType => {
-                        return <option key={activityType} value={activityType}>{activityType}</option>
-                    })}
-                </select>
-            </div>
-        );
+        const { level, abort } = this.props;
+        if (level === 0) {
+            return null;
+        }
+        return <button onClick={abort}>ABORT SIMULATION</button>;
     }
 }
+const ConnectedClassComp05 = connect(mSTP, mDTP)(ClassComp05);
 
 const FunctionalComponent05 = () => {
     return null;
 };
 
-export default ClassComp05;
+const Exercise05 = () => {
+    return <TheBoredSimulator abortButton={<ConnectedClassComp05 />} />
+};
+export default Exercise05;

@@ -15,6 +15,7 @@ class ClassComp04 extends Component {
         this.setState({ doWhenImBored: anActivity });
     }
     async componentDidMount() {
+        console.log("mounted");
         this.getActivity();
     }
     async componentDidUpdate(prevProps, prevState) {
@@ -23,6 +24,7 @@ class ClassComp04 extends Component {
         }
     }
     render() {
+        console.count("04 class component now rendering!");
         const { doWhenImBored, selectedType } = this.state;
         return (
             <div>
@@ -38,6 +40,7 @@ class ClassComp04 extends Component {
 }
 
 const FunctionalComponent04 = () => {
+    console.count("04 functional component now rendering!");
     return null;
 };
 
