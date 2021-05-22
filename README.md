@@ -5,7 +5,7 @@ npm install
 npm start
 ```
 
-`src/exercises` has files `01-05` that can be refactored from class components to hooks.
+`src/exercises` has files `01-05` that can be refactored from class components to hooks. Reference the `solved` branch for solutions to each exercise.
 
 # [Slides Here](https://docs.google.com/presentation/d/1-iZ3cuIz1f5cRwDRR89n8Zpzs91HA9S9LaFGwUFMZ6U/edit#slide=id.gd9394aa7f5_0_0)
 
