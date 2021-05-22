@@ -20,15 +20,11 @@ class ClassComp02 extends Component {
 }
 
 const FunctionalComponent02 = () => {
+    
     const [isBored, setBored] = useState(false);
-    const [rando, setRandom] = useState(Math.random());
-    // const myStateStuff = useState(false);
-    // const isBored = myStateStuff[0];
-    // const setBored = myStateStuff[1];
 
     return (
         <div>
-            <h2>{rando}</h2>
             <h1>{isBored ? "Yeah, I'm bored too." : "Really? Well good for you I suppose."}</h1>
             <div>
                 {!isBored && <button onClick={() => {

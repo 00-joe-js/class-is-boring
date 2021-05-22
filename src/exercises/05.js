@@ -3,7 +3,6 @@ import TheBoredSimulator from "../simulator";
 
 import { connect, useSelector, useDispatch } from "react-redux";
 import { setSimulationStatus, resetBoringLevel } from "../simulator/reducks/actions";
-import FunctionalComponent03 from "./03";
 
 const mSTP = (state) => {
     return {

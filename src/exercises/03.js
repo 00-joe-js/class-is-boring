@@ -25,7 +25,6 @@ class ClassComp03 extends Component {
 const FunctionalComponent03 = () => {
     const [doWhenImBored, set] = useState(null);
 
-    // componentDidMount
     useEffect(
         () => {
             const run = async () => {
