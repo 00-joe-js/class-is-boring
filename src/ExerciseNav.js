@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const numExercises = 5;
+const numExercises = 6;
 const rangeArray = (n) => "~".repeat(n).split("");
 
 const Nav = () => {
